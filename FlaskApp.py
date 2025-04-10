@@ -4,7 +4,8 @@ from dbTesting import query  # import your improved query function
 app = Flask(__name__)
 
 @app.route('/')
-
+def hello():
+    return '<h1>Hello</h1>'
 
 @app.route('/viewdb')
 def viewdb():
