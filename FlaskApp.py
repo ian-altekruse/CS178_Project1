@@ -3,6 +3,9 @@ from dbTesting import query  # import your improved query function
 
 app = Flask(__name__)
 
+@app.route('/')
+
+
 @app.route('/viewdb')
 def viewdb():
     sql = "SELECT * FROM Track LIMIT 10;"
