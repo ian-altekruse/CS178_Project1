@@ -1,17 +1,32 @@
-from flask import Flask, render_template
-from dbCode import *
+from flask import Flask, render_template_string
+from dbTesting import query  # import your improved query function
 
 app = Flask(__name__)
 
-@app.route("/viewdb")
+@app.route('/viewdb')
 def viewdb():
-    rows, columns = display_database()
-    return render_template('index.html', rows=rows, columns = columns)
+    sql = "SELECT * FROM Track LIMIT 10;"
+    columns, rows = query(sql)
 
+    html = '''
+    <h2>Query Results</h2>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>{% for col in columns %}
+                <th>{{ col }}</th>
+            {% endfor %}</tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>{% for item in row %}
+                <td>{{ item }}</td>
+            {% endfor %}</tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    '''
 
-@app.route("/")
-def test():
-    return "Flask is running!"
+    return render_template_string(html, columns=columns, rows=rows)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(debug=True)
