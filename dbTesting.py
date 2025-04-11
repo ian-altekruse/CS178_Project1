@@ -1,25 +1,27 @@
-import mysql.connector
-import creds
+import pymysql
+import creds 
 
-#--------------------------------------------------------------
-#Establish connection with SQL using creds in creds.py folder
-#--------------------------------------------------------------
-def query(query):
-    conn = mysql.connector.connect(
-        host=creds.host,
-        user=creds.user,
-        password=creds.password,
-        database=creds.db
-    )
-    cursor = conn.cursor()
-    cursor.execute(query)
+def get_conn():
+    conn = pymysql.connect(
+        host= creds.host,
+        user= creds.user, 
+        password = creds.password,
+        db=creds.db,
+        )
+    return conn
 
-    results = cursor.fetchall()
-    
-    #Used ChatGPT here to automatically pull column names so they automatically update instead of manually having to change them
-    columns = [desc[0] for desc in cursor.description]
+def execute_query(query, args=()):
+    cur = get_conn().cursor()
+    cur.execute(query, args)
+    rows = cur.fetchall()
+    cur.close()
+    return rows
 
-    cursor.close()
-    conn.close()
+def display_html(rows):
+    html = ""
+    html += """<table><tr><th>Tables</th></tr>"""
 
-    return columns, results
+    for r in rows:
+        html += "<tr><td>" + str(r[0])
+    html += "</table></body>"
+    return html
