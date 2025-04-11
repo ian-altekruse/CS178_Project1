@@ -1,6 +1,9 @@
 import pymysql
 import creds 
 
+#-------------------
+# Connect to mysql
+#-------------------
 def get_conn():
     conn = pymysql.connect(
         host= creds.host,
@@ -10,6 +13,9 @@ def get_conn():
         )
     return conn
 
+#------------------------------------------
+# Execute queries through mysql connection
+#------------------------------------------
 def execute_query(query, args=()):
     cur = get_conn().cursor()
     cur.execute(query, args)
@@ -17,6 +23,9 @@ def execute_query(query, args=()):
     cur.close()
     return rows
 
+#--------------------------
+# Display results as html
+#--------------------------
 def display_html(rows):
     html = ""
     html += """<table><tr><th>Tables</th></tr>"""
