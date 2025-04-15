@@ -1,0 +1,30 @@
+<!--I used chatGPT here to help with some of the formatting and printing of the database-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Watched Movies</title>
+</head>
+<body>
+    <h2>Your Watched Movies</h2>
+
+    <table border="1">
+        <tr>
+            <th>Movie Title</th>
+            <th>Release Date</th>
+            <th>Budget</th>
+            <th>Revenue</th>
+        </tr>
+        {% for r in movies %}
+        <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[1] }}</td>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

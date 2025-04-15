@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Delete Movie</title>
+</head>
+<body>
+    <h1>Delete Movie</h1>
+    <form action="{{ url_for('delete_movie') }}" method="post">
+        <label for="name">Title:</label><br>
+        <input type="text" id="Title" name="Title" required><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -23,14 +23,5 @@ def execute_query(query, args=()):
     cur.close()
     return rows
 
-#--------------------------
-# Display results as html
-#--------------------------
-def display_html(rows):
-    html = ""
-    html += """<table><tr><th>Tables</th></tr>"""
 
-    for r in rows:
-        html += "<tr><td>" + str(r[0])
-    html += "</table></body>"
-    return html
+
