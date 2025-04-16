@@ -8,7 +8,7 @@ table = dynamodb.Table(TABLE_NAME)
 #-----------------------------------------------------------
 # Creating Users with username and password
 #------------------------------------------------------------
-def create_user(User, Password):
+def create_new_user(User, Password):
      table.put_item(
          Item={
              'Username': User,
@@ -21,12 +21,8 @@ def create_user(User, Password):
 #------------------------------------------------------------
 def add_movie_db(Title, Key):
     table.update_item(
-        Key={'Username': Key},  # Assuming 'Password' is the primary key
-        UpdateExpression="SET Movies = list_append(if_not_exists(Movies, :empty_list), :new_movie)",
-        ExpressionAttributeValues={
-            ':new_movie': [Title],
-            ':empty_list': []
-        }
+        Key={'Username': Key},
+        UpdateExpression="SET Movies = list_append(if_not_exists(Movies, :empty_list), :new_movie)", ExpressionAttributeValues={':new_movie': [Title],':empty_list': []}
     )
 
 #-----------------------------------------------------------
@@ -44,10 +40,7 @@ def delete_movie_db(Title, Key):
         
             table.update_item(
                 Key={'Username': Key},
-                UpdateExpression="SET Movies = :new_movies",
-                ExpressionAttributeValues={
-                    ':new_movies': movies_list
-                }
+                UpdateExpression="SET Movies = :new_movies",ExpressionAttributeValues={':new_movies': movies_list}
             )
 
 
