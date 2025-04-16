@@ -3,7 +3,7 @@ from dbTesting import *
 from dynamoDB import *
 
 app = Flask(__name__)
-app.secret_key = '12345'
+app.secret_key = creds.secret_key
 
 #-------------------------------------------
 # Flask Home Page (Defaults to login page)
