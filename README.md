@@ -18,6 +18,7 @@ For this project, I used the following technologies...
 - AWS EC2 (for hosting website)
 - AWS DynamoDB (for hosting user information in NoSQL table)
 - MySQL (for running queries to pull extra movie information)
+- ChatGPT (for errors and help with python and html code)
 
 ## Setup and Run Instructions
 ### Steps for Setup  
