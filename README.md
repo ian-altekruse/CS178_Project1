@@ -22,7 +22,7 @@ For this project, I used the following technologies...
 ## Setup and Run Instructions
 ### Steps for Setup  
 - Clone Github Repo
-- Add creds.py file and include RDS information (host, user, password, database)
+- Add creds.py file and include RDS information (host, user, password, database) and a secret key for flask
 - Run FlaskApp.py and make it persistent using 'nohup python3 FlaskApp.py &'
   
 ### Run Instructions
