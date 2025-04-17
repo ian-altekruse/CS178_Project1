@@ -33,4 +33,3 @@ For this project, I used the following technologies...
 - You can also delete movies using the delete movie movie button
 - You can also change your password using the change password button
 - Lastly, you can logout using the logout button
-- 
