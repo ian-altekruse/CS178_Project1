@@ -24,4 +24,15 @@ def execute_query(query, args=()):
     return rows
 
 
+#------------------------------------------
+# Check if movie is in movies DB
+#------------------------------------------
+def test_movie(title):
+    query = f"SELECT * FROM movie WHERE title = '{title}'"
+    result = execute_query(query)
+    return bool(result)
+
+
+
+
 

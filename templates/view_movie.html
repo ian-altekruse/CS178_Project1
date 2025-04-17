@@ -15,6 +15,7 @@
             <th>Release Date</th>
             <th>Budget</th>
             <th>Revenue</th>
+            <th>Production Companies</th>
         </tr>
         {% for r in movies %}
         <tr>
@@ -22,6 +23,7 @@
             <td>{{ r[1] }}</td>
             <td>{{ r[2] }}</td>
             <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
         </tr>
         {% endfor %}
     </table>

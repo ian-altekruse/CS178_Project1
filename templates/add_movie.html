@@ -4,6 +4,16 @@
     <title>Add New Movie</title>
 </head>
 <body>
+    <!-- display a flash message here, if necessary -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <h1>Add New Movie</h1>
     <form action="{{ url_for('add_movie') }}" method="post">
         <label for="name">Title:</label><br>
