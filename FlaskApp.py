@@ -5,8 +5,6 @@ from dynamoDB import *
 app = Flask(__name__)
 app.secret_key = creds.secret_key
 
-
-
 #------------------------------------------------------------------------
 #Used ChatGPT to help with 'session' code and the RDS and DynamoDB connection
 #------------------------------------------------------------------------
